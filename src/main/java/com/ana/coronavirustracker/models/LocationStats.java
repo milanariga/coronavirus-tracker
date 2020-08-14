@@ -8,6 +8,17 @@ public class LocationStats {
     private String state;
     private String country;
     private int latestTotalCases;
+    private int newCasesPerLastDay;
+
+    public int getNewCasesPerLastDay() {
+        return newCasesPerLastDay;
+    }
+
+    public void setNewCasesPerLastDay(int newCasesPerLastDay) {
+        this.newCasesPerLastDay = newCasesPerLastDay;
+    }
+
+
 
     public String getState() {
         return state;

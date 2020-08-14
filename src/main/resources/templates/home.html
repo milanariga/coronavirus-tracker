@@ -1,28 +1,44 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
-
+<div class="container">
 <head>
     <title>Coronavirus Tracker App</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 
 <body>
 
-<p th:text="${testName}"></p>
+<h1>Coronavirus Tracker App</h1>
+<p>This application lists total number of coronavirus cases as per latest data</p>
 
-<table>
-    <tr>
-        <th>State</th>
-        <th>Country</th>
-        <th>Total cases reported</th>
-    </tr>
-    <tr th:each="stat : ${stats}">
-        <td th:text="${stat.state}"></td>
-        <td th:text="${stat.country}"></td>
-        <td th:text="${stat.latestTotalCases}">0</td>
-    </tr>
-</table>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}">Hello, world!</h1>
+    <p class="lead">Total cases reported as of today</p>
+    <hr class="my-4">
+    <p>
+        <span>New cases reported since previous day</span>
+        <span th:text="${newCases}"></span>
+    </p>
+</div>
+
+
+    <table class="table table-bordered">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Difference with previous day</th>
+        </tr>
+        <tr th:each="stat : ${stats}">
+            <td th:text="${stat.state}"></td>
+            <td th:text="${stat.country}"></td>
+            <td th:text="${stat.latestTotalCases}">0</td>
+            <td th:text="${stat.newCasesPerLastDay}">0</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 
